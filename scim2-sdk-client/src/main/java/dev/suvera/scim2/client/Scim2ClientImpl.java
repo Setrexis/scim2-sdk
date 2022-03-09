@@ -38,7 +38,7 @@ import static dev.suvera.scim2.schema.ScimConstant.*;
 public class Scim2ClientImpl implements Scim2Client {
     private final static Logger log = LogManager.getLogger(Scim2ClientImpl.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     private String endPoint;
     private OkHttpClient client;
@@ -209,6 +209,7 @@ public class Scim2ClientImpl implements Scim2Client {
         try {
             response = call.execute();
         } catch (IOException e) {
+            log.error(e.getMessage());
             throw new ScimException("Could not send HTTP request to scim2 service", e);
         }
 

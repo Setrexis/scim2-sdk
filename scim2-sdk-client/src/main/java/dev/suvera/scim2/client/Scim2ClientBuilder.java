@@ -22,8 +22,8 @@ import java.util.concurrent.TimeUnit;
 public class Scim2ClientBuilder {
     private final String endPoint;
     private final OkHttpClient.Builder builder;
-    private static final boolean DEBUG = false;
-    private boolean debugEnabled = false;
+    private static final boolean DEBUG = true;
+    private boolean debugEnabled = true;
     private String spConfigJson;
     private String resourceTypesJson;
     private String schemasJson;
