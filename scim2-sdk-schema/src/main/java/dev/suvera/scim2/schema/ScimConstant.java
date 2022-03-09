@@ -36,7 +36,7 @@ public class ScimConstant {
     public static final Set<String> SCIM_DEFAULT_SCHEMAS = ImmutableSet.of(
             URN_SP_CONFIG,
             URN_RESOURCE_TYPE,
-            URN_SCHEMA,
+            //URN_SCHEMA,
             URN_USER,
             URN_GROUP
     );
