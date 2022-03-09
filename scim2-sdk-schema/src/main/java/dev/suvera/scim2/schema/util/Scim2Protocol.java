@@ -45,7 +45,7 @@ public class Scim2Protocol {
     private final static Logger log = LogManager.getLogger(Scim2Protocol.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private final Validator beanValidator;
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     private SpConfig sp;
     private final Map<String, Schema> schemas = new HashMap<>();
@@ -203,6 +203,8 @@ public class Scim2Protocol {
     }
 
     private void postProcess() throws ScimException {
+
+        log.info(schemas.toString());
 
         for (String defSchemaId : ScimConstant.SCIM_DEFAULT_SCHEMAS) {
             if (!schemas.containsKey(defSchemaId)) {
