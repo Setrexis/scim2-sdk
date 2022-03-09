@@ -218,9 +218,13 @@ public class Scim2ClientImpl implements Scim2Client {
 
     @Override
     public <T extends BaseRecord> T create(T record, ResourceType resourceType) throws ScimException {
+        String path = resourceType.getEndPoint();
+        path = StringUtils.stripEnd(path, " /");
+        path = StringUtils.substringAfterLast(path, "/");
+
         ScimResponse response = ScimResponse.of(doRequest(
                 HttpMethod.POST,
-                resourceType.getEndPoint(),
+                path,
                 record
         ));
 
