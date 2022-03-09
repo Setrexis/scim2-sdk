@@ -90,7 +90,7 @@ public class Scim2Protocol {
         try {
             sp = objectMapper.readValue(response.getBody(), SpConfig.class);
         } catch (JsonProcessingException e) {
-            throw new ScimException("Could not parse response for " + resource, e);
+            throw new ScimException("Could not parse response for " + resource + " " + e, e);
         }
 
         verifySchemasInResponse(
