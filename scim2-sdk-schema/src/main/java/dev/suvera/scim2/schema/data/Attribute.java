@@ -1,5 +1,6 @@
 package dev.suvera.scim2.schema.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.common.base.Objects;
 import dev.suvera.scim2.schema.enums.AttributeType;
@@ -21,6 +22,7 @@ import java.util.Set;
 @SuppressWarnings("unused")
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Attribute {
     @NotBlank(message = "name cannot be empty")
     private String name;
