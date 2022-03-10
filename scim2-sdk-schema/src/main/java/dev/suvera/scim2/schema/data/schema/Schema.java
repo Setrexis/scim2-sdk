@@ -1,5 +1,6 @@
 package dev.suvera.scim2.schema.data.schema;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.common.base.Objects;
 import dev.suvera.scim2.schema.data.Attribute;
 import dev.suvera.scim2.schema.data.BaseRecord;
@@ -15,6 +16,7 @@ import java.util.Set;
  * date: 10/17/2020 12:26 AM
  */
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Schema extends BaseRecord {
     @NotBlank(message = "name cannot be empty")
     protected String name;
