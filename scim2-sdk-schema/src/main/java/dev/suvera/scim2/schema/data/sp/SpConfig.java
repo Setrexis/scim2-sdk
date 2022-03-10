@@ -17,7 +17,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class SpConfig extends BaseRecord {
-    @NotBlank(message = "documentationUri cannot be empty")
+    //@NotBlank(message = "documentationUri cannot be empty")
     private String documentationUri = "example.com";
     @NotNull(message = "patch cannot be null")
     private Supported patch;
