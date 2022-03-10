@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.JsonNode;
 import dev.suvera.scim2.schema.ScimConstant;
 import dev.suvera.scim2.schema.data.BaseRecord;
@@ -38,6 +39,7 @@ import static dev.suvera.scim2.schema.ScimConstant.*;
 public class Scim2ClientImpl implements Scim2Client {
     private final static Logger log = LogManager.getLogger(Scim2ClientImpl.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final SimpleModule dateModule = new SimpleModule();
     private static final boolean DEBUG = true;
 
     private String endPoint;
@@ -65,6 +67,8 @@ public class Scim2ClientImpl implements Scim2Client {
     }
 
     private void init(String endPoint, OkHttpClient client) throws ScimException {
+        dateModule.addDeserializer(Date.class, new DateDeserializer());
+        objectMapper.registerModule(dateModule);
         endPoint = StringUtils.stripEnd(endPoint, " /");
 
         this.endPoint = endPoint;
