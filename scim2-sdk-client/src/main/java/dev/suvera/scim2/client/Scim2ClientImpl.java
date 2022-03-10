@@ -17,6 +17,7 @@ import dev.suvera.scim2.schema.data.sp.SpConfig;
 import dev.suvera.scim2.schema.enums.HttpMethod;
 import dev.suvera.scim2.schema.enums.ScimOperation;
 import dev.suvera.scim2.schema.ex.ScimException;
+import dev.suvera.scim2.schema.util.DateDeserializer;
 import dev.suvera.scim2.schema.util.Scim2Protocol;
 import dev.suvera.scim2.schema.util.UrlUtil;
 import lombok.Data;

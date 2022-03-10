@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.github.fge.jackson.JsonLoader;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import com.google.common.base.Joiner;
@@ -30,6 +31,8 @@ import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -44,6 +47,7 @@ import java.util.Set;
 public class Scim2Protocol {
     private final static Logger log = LogManager.getLogger(Scim2Protocol.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final SimpleModule dateModule = new SimpleModule();
     private final Validator beanValidator;
     private static final boolean DEBUG = true;
 
@@ -56,6 +60,8 @@ public class Scim2Protocol {
             ScimResponse resourceTypesResponse,
             ScimResponse schemasResponse
     ) throws ScimException {
+        dateModule.addDeserializer(Date.class, new DateDeserializer());
+        objectMapper.registerModule(dateModule);
         beanValidator = Validation.byDefaultProvider()
                 .configure()
                 .messageInterpolator(new ParameterMessageInterpolator())
