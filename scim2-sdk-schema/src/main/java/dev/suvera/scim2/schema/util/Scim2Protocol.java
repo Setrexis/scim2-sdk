@@ -128,6 +128,7 @@ public class Scim2Protocol {
 
             listResponse = objectMapper.readValue(response.getBody(), type);
         } catch (JsonProcessingException e) {
+            log.error(e.getMessage());
             throw new ScimException("Could not parse response for " + resource, e);
         }
 
