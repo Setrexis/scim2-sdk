@@ -256,6 +256,7 @@ public class Scim2ClientImpl implements Scim2Client {
 
         String path = resourceType.getEndPoint();
         path = StringUtils.stripEnd(path, " /");
+        path = StringUtils.substringAfterLast(path, "/");
         ScimResponse response = ScimResponse.of(doRequest(
                 HttpMethod.GET,
                 path + "/" + id,
@@ -280,6 +281,7 @@ public class Scim2ClientImpl implements Scim2Client {
     ) throws ScimException {
         String path = resourceType.getEndPoint();
         path = StringUtils.stripEnd(path, " /");
+        path = StringUtils.substringAfterLast(path, "/");
         ScimResponse response = ScimResponse.of(doRequest(
                 HttpMethod.PUT,
                 path + "/" + id,
@@ -301,6 +303,7 @@ public class Scim2ClientImpl implements Scim2Client {
     public void delete(String id, ResourceType resourceType) throws ScimException {
         String path = resourceType.getEndPoint();
         path = StringUtils.stripEnd(path, " /");
+        path = StringUtils.substringAfterLast(path, "/");
         ScimResponse response = ScimResponse.of(doRequest(
                 HttpMethod.DELETE,
                 path + "/" + id,
@@ -328,6 +331,7 @@ public class Scim2ClientImpl implements Scim2Client {
 
         String path = resourceType.getEndPoint();
         path = StringUtils.stripEnd(path, " /");
+        path = StringUtils.substringAfterLast(path, "/");
         ScimResponse response = ScimResponse.of(doRequest(
                 HttpMethod.PATCH,
                 path + "/" + id,
@@ -361,6 +365,7 @@ public class Scim2ClientImpl implements Scim2Client {
     ) throws ScimException {
         String path = resourceType.getEndPoint();
         path = StringUtils.stripEnd(path, " /");
+        path = StringUtils.substringAfterLast(path, "/");
 
         ScimResponse response = ScimResponse.of(doRequest(
                 HttpMethod.POST,
