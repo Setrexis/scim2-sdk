@@ -28,6 +28,8 @@ public class ResourceType extends BaseRecord {
     @NotBlank(message = "schema cannot be empty")
     private String schema;
     private Set<SchemaExt> schemaExtensions = new HashSet<>();
+    @JsonProperty("urn:gold:params:scim:schemas:extension:url:2.0:ResourceTypeFeatures")
+    private ResourceTypeFeature resourceTypeFeauture;
 
     @JsonIgnore
     private Schema schemaObject;
