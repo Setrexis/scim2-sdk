@@ -192,7 +192,7 @@ public class Scim2Protocol {
             verifySchemasInResponse(
                     resource,
                     resourceType.getSchemas(),
-                    ImmutableSet.of(ScimConstant.URN_RESOURCE_TYPE),
+                    ImmutableSet.of(ScimConstant.URN_RESOURCE_TYPE,ScimConstant.URN_RESOURCE_TYPE_FEATURE),
                     true
             );
 

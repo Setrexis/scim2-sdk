@@ -13,6 +13,7 @@ public class ScimConstant {
     public static final String URN_LIST_RESPONSE = "urn:ietf:params:scim:api:messages:2.0:ListResponse";
 
     public static final String URN_RESOURCE_TYPE = "urn:ietf:params:scim:schemas:core:2.0:ResourceType";
+    public static final String URN_RESOURCE_TYPE_FEATURE = "urn:gold:params:scim:schemas:extension:url:2.0:ResourceTypeFeatures";
     public static final String URN_SP_CONFIG = "urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig";
     public static final String URN_SCHEMA = "urn:ietf:params:scim:schemas:core:2.0:Schema";
 
