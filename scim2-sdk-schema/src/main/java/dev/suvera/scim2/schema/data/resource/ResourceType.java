@@ -18,7 +18,7 @@ import java.util.Set;
  * author: suvera
  * date: 10/17/2020 12:33 AM
  */
-@JsonIgnoreProperties
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class ResourceType extends BaseRecord {
     @NotBlank(message = "name cannot be empty")
