@@ -1,6 +1,7 @@
 package dev.suvera.scim2.schema.data.resource;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.fge.jsonschema.main.JsonSchema;
 import com.google.common.base.Objects;
@@ -17,6 +18,7 @@ import java.util.Set;
  * author: suvera
  * date: 10/17/2020 12:33 AM
  */
+@JsonIgnoreProperties
 @Data
 public class ResourceType extends BaseRecord {
     @NotBlank(message = "name cannot be empty")
@@ -28,8 +30,6 @@ public class ResourceType extends BaseRecord {
     @NotBlank(message = "schema cannot be empty")
     private String schema;
     private Set<SchemaExt> schemaExtensions = new HashSet<>();
-    @JsonProperty("urn:gold:params:scim:schemas:extension:url:2.0:ResourceTypeFeatures")
-    private ResourceTypeFeature resourceTypeFeauture;
 
     @JsonIgnore
     private Schema schemaObject;
