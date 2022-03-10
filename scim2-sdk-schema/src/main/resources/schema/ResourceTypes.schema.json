@@ -68,7 +68,82 @@
                                 }
                             }
                         ]
-                    }
+                    },
+                    "urn:gold:params:scim:schemas:extension:url:2.0:ResourceTypeFeatures": {
+                        "type": "object",
+                        "properties": {
+                          "disabled": {
+                            "type": "boolean"
+                          },
+                          "singletonEndpoint": {
+                            "type": "boolean"
+                          },
+                          "autoFiltering": {
+                            "type": "boolean"
+                          },
+                          "autoSorting": {
+                            "type": "boolean"
+                          },
+                          "etag": {
+                            "type": "object",
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "enabled"
+                            ]
+                          },
+                          "endpointControl": {
+                            "type": "object",
+                            "properties": {
+                              "disableCreate": {
+                                "type": "boolean"
+                              },
+                              "disableGet": {
+                                "type": "boolean"
+                              },
+                              "disableList": {
+                                "type": "boolean"
+                              },
+                              "disableUpdate": {
+                                "type": "boolean"
+                              },
+                              "disableDelete": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "disableCreate",
+                              "disableGet",
+                              "disableList",
+                              "disableUpdate",
+                              "disableDelete"
+                            ]
+                          },
+                          "authorization": {
+                            "type": "object",
+                            "properties": {
+                              "authenticated": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "authenticated"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "disabled",
+                          "singletonEndpoint",
+                          "autoFiltering",
+                          "autoSorting",
+                          "etag",
+                          "endpointControl",
+                          "authorization"
+                        ]
+                      }
                 },
                 "required": [
                     "schemas",
