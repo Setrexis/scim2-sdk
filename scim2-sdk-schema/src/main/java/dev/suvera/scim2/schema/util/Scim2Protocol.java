@@ -368,6 +368,7 @@ public class Scim2Protocol {
         try {
             JsonSchemaUtil.validate(response.getBody(), resourceType.getJsonSchema());
         } catch (Exception e) {
+            log.error(e.getMessage());
             throw new ScimException("Resource data object created for "
                     + resourceType.getName() + " is not following Schema.", e);
         }
