@@ -41,7 +41,7 @@ public class Scim2ClientImpl implements Scim2Client {
     private final static Logger log = LogManager.getLogger(Scim2ClientImpl.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static final SimpleModule dateModule = new SimpleModule();
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private String endPoint;
     private OkHttpClient client;

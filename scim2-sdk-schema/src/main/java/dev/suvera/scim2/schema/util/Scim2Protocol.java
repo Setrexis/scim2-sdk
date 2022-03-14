@@ -49,7 +49,7 @@ public class Scim2Protocol {
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static final SimpleModule dateModule = new SimpleModule();
     private final Validator beanValidator;
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private SpConfig sp;
     private final Map<String, Schema> schemas = new HashMap<>();
